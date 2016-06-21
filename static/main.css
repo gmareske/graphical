@@ -1,0 +1,60 @@
+/* 
+main.css file for graphical.py
+author: Griffin Mareske <gmareske@gmail.com>
+*/
+
+button {
+    padding: 10px;
+    margin: 10px;
+}
+
+.right {
+    float: right;
+}
+
+.command-btn {
+    border-radius: 10px;
+    display: inline;
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.command-btn:hover {
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
+
+.command-remove:hover {
+    color: red;
+    cursor: pointer;
+}
+    
+ul {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.doc-box {
+    display: none;
+    font-size: 16px;
+    background-color: #EEEEEE;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.option {
+    display: inline;
+    text-decoration: none;
+    padding: 10px 0 10px 10px;
+}
+
+.command-part {
+    display: inline;
+    text-decoration: none;
+    font-size: 20px;

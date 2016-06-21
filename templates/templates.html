@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="command container">
+  <h1>You want to run <code id="current-command">{{ command }}</code></h1>
+  <div class="right">
+    <h3 class="man-page-link">View Manual Page</h3></div>
+  <h2>Command Breakdown:</h2>
+  <ul id="command-part-list">
+    <li class="command-part" id="{{ commandpart|first }}">
+      <div id="command-primary" class="command-btn">
+	{{ commandpart|first }}
+      </btn>
+    </li>
+    {% for part in commandpart[-1:0:-1]|reverse %}
+      <li class="command-part" id="{{ part }}">
+	<div class="command-btn">
+	  {{ part }}    <i class="fa fa-times command-remove" aria-hidden="true"></i>
+	</div>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="col-md-6">
+    <button class="btn btn-success">
+      <i class="fa fa-play" aria-hidden="true"></i> Run this command
+    </button>
+  </div>
+
+  <div class="col-md-6">
+    <button id="copy-btn right" class="btn btn-warning">
+      <i class="fa fa-clipboard" aria-hidden="true"></i> Copy to clipboard
+    </button>
+  </div>
+  
+</div>
+
+<hr>
+
+<div class="doc container">
+  <div class="col-md-3" id="command-name">
+    <h2>Name</h2>
+    <p>{{ name }}</p>
+  </div>
+
+  <div class="col-md-3" id="command-args">
+    <h2>Arguments</h2>
+    {{ arguments }}
+  </div>
+
+  <div class="col-md-6" id="command-opts">
+    <h2>Options</h2>
+    <ul class="opt-list">
+      {% for opt in options %}
+	<li class="option">
+	  <div class="doc-box" id="{{ opt.name }}">
+	    <p>{{ opt.doc|default("No documentation? This might be a bug! Report it!") }}</p>
+	    <button class="btn btn-success add-opt-btn">
+	      <i class="fa fa-plus" aria-hidden="true"></i>
+	    </button>
+	    <button class="btn btn-warning man-btn">
+	      <i class="fa fa-cog" aria-hidden="true"></i>
+	    </button>
+	  </div>
+	  <button class="btn btn-default option-btn" id="{{ opt.name }}">
+	    {{ opt.name }}
+	  </button>
+	</li>
+      {% endfor %}
+    </ul>
+  </div>
+  
+</div>
+
+{% endblock %}
+
