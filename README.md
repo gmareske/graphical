@@ -31,7 +31,10 @@ TODO
 Usage
 ---
 
-TODO
+Not sure how a command works? Just type into your terminal:
+````
+graphical tar -x -v -f
+````
 
 Hacking
 ---
